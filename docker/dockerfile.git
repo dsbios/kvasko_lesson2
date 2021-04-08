@@ -1,5 +1,8 @@
-FROM alpine/git
+FROM alpine
+
+RUN apk update --no-cache && apk add git
 
 WORKDIR /repo
 
-COPY . /repo
+ENTRYPOINT ["git"]
+CMD ["--help"]
